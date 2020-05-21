@@ -1,6 +1,7 @@
 var path = require('path')
 var bodyParser = require('body-parser')
 var apiRouter = require('./routes/apiRouter.js')
+var api = require('./routes/api1')
 var express = require('express')
 var app = express()
 
@@ -19,7 +20,10 @@ app.use(bodyParser.urlencoded({extended:false}))
     //console.log(request.body)
     //response.render('index')
 //} )
-app.use('/',apiRouter) 
+//'/' 는 인터넷 경로를 지정해주는 것.
+
+app.use('/',api) 
+//app.use('/user', api) // 이거 선언하면 localhost:8080/user/daejeon 했을때 api가 호출됨.
 
 
 //listen(port,url,backlog,callback)
